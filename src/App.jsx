@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Cards from './Cards'
+import './App.css'
 
 const shuffleArray = (array) => {
   return array.sort(() => Math.random() - 0.5)
@@ -21,10 +22,14 @@ function App() {
 
   return (
     <>
-      <h1>Memory Card</h1>
-      {cards.map((card, index) => (
-        <img src={card.image} key={index} />
-      ))}
+      <div className='game'>
+        <h1>Memory Card</h1>
+        <div className='card-grid'>
+          {cards.map((card, index) => (
+            <img src={card.image} key={index} />
+          ))}
+        </div>
+      </div>
     </>
   )
 }
