@@ -1,11 +1,24 @@
-// import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Cards from './Cards'
 
 function App() {
+  const [cards, setCards] = useState([])
+
+  useEffect(() => {
+    const initializeGame = async () => {
+      const images = await Cards()
+      setCards(images.map((image, index) => ({ id: index, image })))
+    }
+
+    initializeGame()
+  }, [])
+
   return (
     <>
       <h1>Memory Card</h1>
-      <Cards />
+      {cards.map((card, index) => (
+        <img src={card.image} key={index} />
+      ))}
     </>
   )
 }
