@@ -11,7 +11,7 @@ async function Cards() {
 
   const images = pokemonDetails.map((pokemon) => pokemon.sprites.front_default)
 
-  console.log(images)
+  return images.concat(images)
 }
 
 export default Cards
